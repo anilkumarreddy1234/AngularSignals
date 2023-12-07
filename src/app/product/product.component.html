@@ -1,0 +1,19 @@
+<div class="main-product-container">
+    <div class="search-input">
+    </div>
+    <div class="product-card-container">
+      <div *ngFor="let product of productsData() ; let i = index " class="product-card">
+        <img [src]="product.thumbnail" alt="Product {{ i + 1 }}" class="product-image" (click)="products(product)">
+        <div class="product-details">
+            <p>Stock: {{ product.stock }}</p>
+          <h2 class="product-title">{{ product.title }}</h2>
+          <p class="product-description" (click)="products(product)">{{ product.description }}</p>
+          <p class="product-price">${{ product.price }}</p>
+          <div>
+            <button class="buy-now-button" (click)="buynow(product.id)">Buy now</button>
+            <button class="add-to-cart-button" (click)="addtocart(product.id)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

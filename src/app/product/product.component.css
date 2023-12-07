@@ -1,0 +1,89 @@
+.product-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1px;
+    max-width: 70%;
+    margin: 0 auto;
+    height: 70vh; 
+    overflow: auto;
+  }
+  
+  .product-card {
+    flex: 0 0 calc(33.33% - 20px); /* Three products per row with 20px gap between */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Ensure a column layout for the card */
+    cursor: pointer;
+  }
+  
+  .product-image {
+    height: 100px;
+    border-radius: 4px;
+    margin-right: 16px;
+    width: 50%;
+    position: relative;
+    left: 20%;
+  }
+  
+  .product-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-title {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .product-description {
+    font-size: 14px;
+    flex: 1; /* Allow the description to take up remaining vertical space */
+  }
+  
+  .product-price {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .add-to-cart-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: flex-end; /* Align the button to the bottom of the card */
+  }
+  .buy-now-button{
+    background-color: #a1b13d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 40px
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .search-input{  
+    margin-left: 15%;
+  }
+
+  .mat-mdc-form-field {
+    width: 78%;
+  }
+
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }

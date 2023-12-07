@@ -1,0 +1,8 @@
+
+<h1>
+    from product page
+</h1>
+<div *ngFor="let prodcut of this.productService.cartItem(); let i = index">
+    <p>{{prodcut.description}}</p>
+    <button (click)="removeItme(i)">Remove</button>
+</div>
