@@ -15,7 +15,7 @@ export class ProductService {
     },0)
   );
   public totalItems = computed(() => this.cartItem().length);
-  
+
   addProductSignal(product:Product){
     this.cartItem.mutate((val) =>{
       val.push(product);
@@ -29,7 +29,7 @@ export class ProductService {
 
   removeProductSignal(id:number){
     this.cartItem.mutate((val) =>{
-      const product = val.splice(id, 1);
+     const product =  val.splice(id, 1);
       this.api.productsData()?.forEach(a => {
         if(a.id == product[0].id){
           a.stock = a.stock + 1;

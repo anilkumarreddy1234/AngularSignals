@@ -2,6 +2,7 @@
     <div class="search-input">
     </div>
     <div class="product-card-container">
+      <!-- <div *ngFor="let product of this.apiService?.productsData() ; let i = index " class="product-card"> -->
       <div *ngFor="let product of productsData() ; let i = index " class="product-card">
         <img [src]="product.thumbnail" alt="Product {{ i + 1 }}" class="product-image" (click)="products(product)">
         <div class="product-details">

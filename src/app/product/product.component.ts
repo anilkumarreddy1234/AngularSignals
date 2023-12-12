@@ -17,20 +17,10 @@ export class ProductComponent {
   productsWithUSD:number = 0;
   serach:any;
   
-   constructor(private http:HttpClient,private _productsService:ProductService,private router: Router,private apiService:ApiService) { this.productsData = [];
-    this.productsData = this.apiService.productsData }
+   constructor(private http:HttpClient,private _productsService:ProductService,private router: Router,public apiService:ApiService) { this.productsData = [];
+    this.productsData = this.apiService.productsData 
+  }
    ngOnInit() {
-      
-    //  this._productsService.getProducts().subscribe((data) => {
-    //    this.productsData = data;
-    //  });
-    //  this._productsService.currentProduct.subscribe(product => {
-    //    this.productNums = product;
-    //  });
- 
-    //  this._productsService.orderItemincrease.subscribe(product => {
-    //    this.productsWithUSD = product;
-    //  });
    }
  
    addtocart(id:number){
@@ -38,27 +28,16 @@ export class ProductComponent {
        (product: Product) => product.id === id
      );
      this._productsService.addProductSignal(productToAdd);
-
-    //  this.productsWithUSD = this.productsWithUSD + productToAdd.price;
-    //  this._productsService.productSource.next(productToAdd);
-    //  this._productsService.itemincrese.next(this.productsWithUSD);
    }
  
    buynow(id:number){
      const productToAdd = this.productsData().find(
        (product: Product) => product.id === id
      );
-    //  this._productsService.buyProductSource.next(productToAdd);
-    //  if(productToAdd){
-    //    this.router.navigate(['products/productpage']);
-    //  }else{
-    //    this.router.navigate(['/product']);
-    //  }
    }
  
    products(order:any){
-    //  this._productsService.buyProductSource.next(order);
-     this.router.navigate(['products/productpage']);
+    // this.router.navigate(['products/productpage']);
    }
  
    sreachKey(){

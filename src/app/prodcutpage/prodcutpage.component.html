@@ -1,8 +1,44 @@
-
-<h1>
-    from product page
+<!-- 
+<h1 *ngIf="this.productService.totalItems() <= 0">
+    Your is Empty
 </h1>
 <div *ngFor="let prodcut of this.productService.cartItem(); let i = index">
     <p>{{prodcut.description}}</p>
-    <button (click)="removeItme(i)">Remove</button>
-</div>
+    <p>{{prodcut.price}}</p>
+    <button  (click)="removeItme(i)">Remove</button>
+</div> -->
+<div class="order-list">
+    <div class="container">
+        <h1 class="price" *ngIf="this.productService.totalItems()">Order List</h1>
+        <h1 class="price" *ngIf="this.productService.totalItems()" >Total Price: ${{this.productService.subTotal()}}</h1>
+    </div>
+    <div [ngClass]="this.productService.totalItems() == 0 ? 'empty' : 'orderlistpage'">
+    <!-- Loop through the list of orders -->
+        <div *ngFor="let prodcut of this.productService.cartItem(); let i = index" class="order-item">
+            <div class="container">
+                <div class="price">
+                    <img [src]="prodcut.thumbnail" alt="Product {{ i + 1 }}" class="product-image">
+                </div>
+                <div class="order-details price">
+                    <p><strong>Order Id:</strong> {{ prodcut.id }}</p>
+                    <p><strong>Date:</strong> {{ today | date }}</p>
+                    <p><strong>Price:</strong> ${{prodcut.price}}</p>
+                    <button type="button" class="btn btn-danger" (click)="removeItme(i)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="price" *ngIf="this.productService.totalItems()">Payment Amount: ${{this.productService.subTotal()}}</h1>
+        <button *ngIf="this.productService.totalItems()" class="btn btn-primary payment">Payment</button>
+  </div>
+
+
+  <div *ngIf="this.productService.totalItems() === 0; then callFunctionContent" class="emptycart">
+  </div> 
+  
+  <ng-template #callFunctionContent>
+    <h1 class="empty-cart">Your Cart is Empty</h1>
+    <!-- {{callFunction()}} -->
+  </ng-template>
+  

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from './product/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,9 @@ import { ProductService } from './product/product.service';
 })
 export class AppComponent {
   title = 'angularsignals';
-  constructor(public productService: ProductService ){}
+  constructor(public productService: ProductService,private router: Router ){}
+
+  orderlist(){
+    this.router.navigate(['/orderlist']);
+  }
 }
